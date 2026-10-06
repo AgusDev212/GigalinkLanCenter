@@ -1,0 +1,25 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    
+    function isValidRegistration(data) {
+      return data.gamerTag is string && data.gamerTag.size() > 0 && data.gamerTag.size() <= 50
+        && data.birthDate is string && data.birthDate.size() >= 8
+        && data.calculatedAge is number && data.calculatedAge >= 18
+        && data.idDocument is string && data.idDocument.size() > 0 && data.idDocument.size() <= 30
+        && data.isAdultConfirmed == true
+        && data.verificationCode is string
+        && data.createdAt is string;
+    }
+
+    match /registrations/{registrationId} {
+      allow read: if true;
+      allow create: if isValidRegistration(request.resource.data);
+      allow update, delete: if true;
+    }
+
+    match /test/connection {
+      allow read, write: if true;
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Gigalink LAN Center Games - Amanecidas Gamer +18",
+  "description": "Filtro de verificación de edad (+18) y acceso exclusivo al grupo de WhatsApp de amanecidas gamer en Gigalink LAN Center Games.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

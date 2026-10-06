@@ -1,0 +1,66 @@
+{
+  "entities": {
+    "GamerRegistration": {
+      "title": "GamerRegistration",
+      "description": "Registro de participante verificado para las amanecidas gamer de Gigalink LAN Center",
+      "type": "object",
+      "properties": {
+        "fullName": {
+          "type": "string",
+          "description": "Nombre completo del jugador"
+        },
+        "gamerTag": {
+          "type": "string",
+          "description": "Nickname o tag gamer del participante"
+        },
+        "birthDate": {
+          "type": "string",
+          "description": "Fecha de nacimiento en formato YYYY-MM-DD"
+        },
+        "calculatedAge": {
+          "type": "number",
+          "description": "Edad calculada en años al momento del registro"
+        },
+        "idDocument": {
+          "type": "string",
+          "description": "Número de Carnet de Identidad o DNI"
+        },
+        "phone": {
+          "type": "string",
+          "description": "Número de teléfono o WhatsApp del jugador"
+        },
+        "favoriteGame": {
+          "type": "string",
+          "description": "Juego principal que jugará en la amanecida"
+        },
+        "isAdultConfirmed": {
+          "type": "boolean",
+          "description": "Confirmación obligatoria de mayoría de edad (+18)"
+        },
+        "verificationCode": {
+          "type": "string",
+          "description": "Código de validación de pase digital"
+        },
+        "createdAt": {
+          "type": "string",
+          "description": "Fecha y hora del registro ISO"
+        }
+      },
+      "required": [
+        "gamerTag",
+        "birthDate",
+        "calculatedAge",
+        "idDocument",
+        "isAdultConfirmed",
+        "verificationCode",
+        "createdAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/registrations/{registrationId}": {
+      "schema": "GamerRegistration",
+      "description": "Colección de registros de mayores de edad para control en puerta y estadísticas"
+    }
+  }
+}
